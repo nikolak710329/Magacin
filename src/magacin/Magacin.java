@@ -12,6 +12,7 @@ public class Magacin {
 	}
 
 	public void setArtikli(List<Artikal> artikli) {
+		
 		this.artikli = artikli;
 	}
 

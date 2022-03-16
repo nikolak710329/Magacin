@@ -1,5 +1,6 @@
 package artikli;
 
+import java.time.DateTimeException;
 import java.util.Date;
 
 public class KucnaHemija extends Artikal {
@@ -11,6 +12,8 @@ public class KucnaHemija extends Artikal {
 	}
 
 	public void setRokTrajanja(Date rokTrajanja) {
+		if(rokTrajanja.before(new Date())) 
+			throw new DateTimeException("Nevalidan rok trajanja!");
 		this.rokTrajanja = rokTrajanja;
 	}
 }

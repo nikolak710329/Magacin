@@ -10,9 +10,19 @@ public class Artikal {
 		return naziv;
 	}
 	public void setNaziv(String naziv) {
+		if (naziv == null)
+			throw new NullPointerException("Naziv ne sme biti null!");
+		
+		if (naziv.isEmpty())
+			throw new IllegalArgumentException("Naziv ne sme biti prazan string!");
 		this.naziv = naziv;
 	}
 	public String getOpis() {
+		if (opis == null)
+			throw new NullPointerException("Opis ne sme biti null!");
+		
+		if (opis.isEmpty())
+			throw new IllegalArgumentException("Opis ne sme biti prazan string");
 		return opis;
 	}
 	public void setOpis(String opis) {
@@ -22,12 +32,16 @@ public class Artikal {
 		return sifra;
 	}
 	public void setSifra(int sifra) {
+		if (sifra <= 0)
+			throw new IllegalArgumentException("Sifra mora biti validna!");
 		this.sifra = sifra;
 	}
 	public int getKolicina() {
 		return kolicina;
 	}
 	public void setKolicina(int kolicina) {
+		if (kolicina <= 0)
+			throw new IllegalArgumentException("Kolicina mora bii veci od nule!");
 		this.kolicina = kolicina;
 	}
 	@Override
