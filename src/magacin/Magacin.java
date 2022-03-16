@@ -50,7 +50,13 @@ public class Magacin implements InterfejsMagacin {
 
 	@Override
 	public void dodajArtikal(Artikal artikal) {
-		// TODO Auto-generated method stub
+		for(int i = 0;i < artikli.size();i++) {
+			if(artikli.get(i).equals(artikal)) {
+				artikli.get(i).setKolicina(artikli.get(i).getKolicina() + artikal.getKolicina());
+				return;
+			}
+		}
+		
 		
 	}
 
