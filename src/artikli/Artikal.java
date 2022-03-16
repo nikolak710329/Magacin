@@ -2,11 +2,11 @@ package artikli;
 
 public class Artikal {
 
-	private String naziv;
-	private String opis;
-	private int sifra;
-	private int kolicina;
-	public String getNaziv() {
+	protected String naziv;
+	protected String opis;
+	protected int sifra;
+	protected int kolicina;
+	protected String getNaziv() {
 		return naziv;
 	}
 	public void setNaziv(String naziv) {
