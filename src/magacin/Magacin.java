@@ -7,14 +7,14 @@ import artikli.Artikal;
 import magacin.interfejs.InterfejsMagacin;
 
 public class Magacin implements InterfejsMagacin {
-	private List<Artikal>artikli = new LinkedList<Artikal>();
+	private List<Artikal> artikli = new LinkedList<Artikal>();
 
 	public List<Artikal> getArtikli() {
 		return artikli;
 	}
 
 	public void setArtikli(List<Artikal> artikli) {
-		
+
 		this.artikli = artikli;
 	}
 
@@ -50,21 +50,46 @@ public class Magacin implements InterfejsMagacin {
 
 	@Override
 	public void dodajArtikal(Artikal artikal) {
-		// TODO Auto-generated method stub
-		
+		if (artikal == null)
+			throw new NullPointerException("Artikal ne sme biti null!");
+
+		for (Artikal a : artikli) {
+			if (a.equals(artikal)) {
+				a.setKolicina(a.getKolicina() + artikal.getKolicina());
+				return;
+			}
+		}
+		artikli.add(artikal);
+
 	}
 
 	@Override
 	public void izbaciArtikal(Artikal artikal) {
-		// TODO Auto-generated method stub
-		
+		if (artikal == null)
+			throw new NullPointerException("Artikal ne sme biti null!");
+
+		for (Artikal a : artikli) {
+			if (a.equals(artikal)) {
+				if (a.getKolicina() < artikal.getKolicina()) {
+					throw new ArithmeticException("Nedovoljno kolicine na zalihama!");
+				}
+				a.setKolicina(a.getKolicina() - artikal.getKolicina());
+			}
+		}
+		throw new IllegalArgumentException("Nepostojeci artikal!");
 	}
 
 	@Override
 	public Artikal pronadjiArtikal(int sifra) {
-		// TODO Auto-generated method stub
+		if (sifra <= 0) {
+			throw new IllegalArgumentException("Sifra mora biti validna!");
+		}
+		for (Artikal a : artikli) {
+			if (a.getSifra() == sifra) {
+				return a;
+			}
+		}
 		return null;
 	}
-	
-	
+
 }
