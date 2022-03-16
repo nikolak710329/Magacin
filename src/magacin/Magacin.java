@@ -1,11 +1,13 @@
 package magacin;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import artikli.Artikal;
+import magacin.interfejs.InterfejsMagacin;
 
-public class Magacin {
-	private List<Artikal>artikli;
+public class Magacin implements InterfejsMagacin {
+	private List<Artikal>artikli = new LinkedList<Artikal>();
 
 	public List<Artikal> getArtikli() {
 		return artikli;
@@ -44,6 +46,24 @@ public class Magacin {
 	@Override
 	public String toString() {
 		return "Magacin [artikli=" + artikli + "]";
+	}
+
+	@Override
+	public void dodajArtikal(Artikal artikal) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void izbaciArtikal(Artikal artikal) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Artikal pronadjiArtikal(int sifra) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
