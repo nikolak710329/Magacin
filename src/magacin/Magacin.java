@@ -50,7 +50,10 @@ public class Magacin implements InterfejsMagacin {
 
 	@Override
 	public void dodajArtikal(Artikal artikal) {
-<<<<<<< HEAD
+
+		if (artikal == null)
+			throw new NullPointerException("Artikal ne sme biti null!");
+		
 		for(int i = 0;i < artikli.size();i++) {
 			if(artikli.get(i).equals(artikal)) {
 				artikli.get(i).setKolicina(artikli.get(i).getKolicina() + artikal.getKolicina());
@@ -58,20 +61,9 @@ public class Magacin implements InterfejsMagacin {
 			}
 		}
 		
-		
-=======
-		if (artikal == null)
-			throw new NullPointerException("Artikal ne sme biti null!");
-
-		for (Artikal a : artikli) {
-			if (a.equals(artikal)) {
-				a.setKolicina(a.getKolicina() + artikal.getKolicina());
-				return;
-			}
-		}
 		artikli.add(artikal);
 
->>>>>>> refs/heads/implementacijainterfejsa
+
 	}
 
 	@Override
